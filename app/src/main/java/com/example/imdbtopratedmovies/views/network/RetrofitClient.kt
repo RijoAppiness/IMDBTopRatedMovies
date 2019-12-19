@@ -3,6 +3,10 @@ package com.example.imdbtopratedmovies.views.network
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * This class is a singleton to get retrofit client
+ */
+
 class RetrofitClient{
     companion object {
         private var retroInstance:Retrofit? = null

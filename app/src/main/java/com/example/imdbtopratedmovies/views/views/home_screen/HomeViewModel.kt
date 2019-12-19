@@ -6,6 +6,10 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import com.example.imdbtopratedmovies.views.repository.MovieRepository
 
+/**
+ * This is a ViewModel class to transform model to home activity
+ */
+
 class HomeViewModel(context: Application): AndroidViewModel(context){
     private val repository = MovieRepository(context)
     val observableMovieResponse = repository.topRatedMovies

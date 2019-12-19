@@ -13,7 +13,6 @@ import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.GridLayoutManager
@@ -23,12 +22,16 @@ import com.example.imdbtopratedmovies.R
 import com.example.imdbtopratedmovies.views.models.Movie
 import com.example.imdbtopratedmovies.views.network.IMAGE_BASE_URL
 import com.example.imdbtopratedmovies.views.network.IMAGE_SIZE
-import com.example.imdbtopratedmovies.views.views.WebViewActivity
+import com.example.imdbtopratedmovies.views.views.web_view_screen.WebViewActivity
 import com.example.imdbtopratedmovies.views.views.home_screen.HomeViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_home_sreen.*
 
+
+/**
+ * This is the Home activity which shows list of movies
+ */
 const val IMDB_ID = "imdb_id"
 
 class HomeSreen : AppCompatActivity() {
@@ -67,10 +70,12 @@ class HomeSreen : AppCompatActivity() {
               Picasso.with(context).load(IMAGE_BASE_URL+ IMAGE_SIZE+getItem(position).poster).placeholder(R.drawable.error)
                   .error(R.drawable.error).into(IV_poster)
               TVtitleAndRelease.text = getItem(position).title+" ("+getItem(position).run { release_date.substringBefore('-') }+")"
+              TVtitleAndRelease.isSelected = true
               TVrating.text = getItem(position).rating.toString()+"/10"
               RB_rating.rating = (getItem(position).rating/2).toFloat()
               itemsView.setOnClickListener {
-                 val intent = Intent(context,WebViewActivity::class.java)
+                 val intent = Intent(context,
+                     WebViewActivity::class.java)
                   intent.putExtra(IMDB_ID,getItem(position).imdb_id)
                   context.startActivity(intent)
               }

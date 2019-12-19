@@ -7,6 +7,9 @@ import android.os.Handler
 import com.example.imdbtopratedmovies.R
 import com.example.imdbtopratedmovies.views.home_screen.HomeSreen
 
+/**
+ * This activity is the splash screen
+ */
 class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

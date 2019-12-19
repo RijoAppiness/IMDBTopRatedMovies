@@ -12,6 +12,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * This class is the single source of truth for movies
+ */
+
 class MovieRepository(val context:Application){
   private val movieAPI = RetrofitClient.getInstance().create(MovieAPI::class.java)
     val errorMessage = MutableLiveData<String>()

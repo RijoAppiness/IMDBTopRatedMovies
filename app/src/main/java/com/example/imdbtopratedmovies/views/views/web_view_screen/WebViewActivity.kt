@@ -1,4 +1,4 @@
-package com.example.imdbtopratedmovies.views.views
+package com.example.imdbtopratedmovies.views.views.web_view_screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,6 +7,10 @@ import android.webkit.WebViewClient
 import com.example.imdbtopratedmovies.R
 import com.example.imdbtopratedmovies.views.home_screen.IMDB_ID
 import kotlinx.android.synthetic.main.activity_web_view.*
+
+/**
+ * This activity contains the webview for movie database
+ */
 
 //const val IMDB_BASE_URL = "https://www.imdb.com/title/"
 const val IMDB_BASE_URL = "https://www.themoviedb.org/movie/"
@@ -18,7 +22,7 @@ class WebViewActivity : AppCompatActivity() {
         imdb_id = intent.getStringExtra(IMDB_ID)
         WB_imdb.webViewClient = IMDB()
         WB_imdb.settings.javaScriptEnabled = true
-        WB_imdb.loadUrl(IMDB_BASE_URL+imdb_id)
+        WB_imdb.loadUrl(IMDB_BASE_URL +imdb_id)
     }
     class IMDB: WebViewClient() {
         override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
